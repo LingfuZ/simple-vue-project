@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        #img {
+            padding: 20px;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <title>Simple Cat App</title>
+</head>
+<body>
+<div class="container" id="app">
+    <h3 class="text-center">Cats</h3>
+    <div class="row">
+        <div class="col col-lg-3"></div>
+        <div class="col col-lg-6">
+            <div class="form-group">
+                <label for="breedSelect">Select Breeds</label>
+                <select class="form-control" id="breedSelect" v-model="breed" >
+                    <option v-for="breed in breeds" :value="breed.id">{{ breed.name }}</option>
+                </select>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <label>Select Width</label>
+                    <input v-model="width" type="text" class="form-control" placeholder="Width">
+                </div>
+                <div class="col">
+                    <label>Select Height</label>
+                    <input v-model="height" type="text" class="form-control" placeholder="Height">
+                </div>
+            </div>
+            <button @click="getImages(breed)" class="btn btn-primary">Get Images</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col col-lg-3"></div>
+        <div class="col col-lg-6">
+            <img v-for="(item,i) in images" :key="i" :src="item.url" :width="width" :height="height" id="img" alt="cat image">
+        </div>
+    </div>
+</div>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
