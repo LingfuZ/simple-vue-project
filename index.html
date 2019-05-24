@@ -4,9 +4,13 @@
     <meta charset="UTF-8">
     <style>
         #img {
-            padding: 20px;
+            padding: 1rem;
+        }
+        .btn-primary, #head-space {
+            margin-top: 1rem;
         }
     </style>
+    <link href='https://fonts.googleapis.com/css?family=Gudea:400' rel='stylesheet' type='text/css'>
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -15,7 +19,7 @@
 </head>
 <body>
 <div class="container" id="app">
-    <h3 class="text-center">Cats</h3>
+    <h3 class="text-center" id="head-space">Cats</h3>
     <div class="row">
         <div class="col col-lg-3"></div>
         <div class="col col-lg-6">
@@ -41,7 +45,7 @@
     <div class="row">
         <div class="col col-lg-3"></div>
         <div class="col col-lg-6">
-            <img v-for="(item,i) in images" :key="i" :src="item.url" :width="width" :height="height" id="img" alt="cat image">
+            <img v-for="(item,i) in images" :key="i" :src="item.url" class="img-fluid" id="img" alt="cat image">
         </div>
     </div>
 </div>

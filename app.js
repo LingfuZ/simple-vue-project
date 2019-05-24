@@ -6,8 +6,8 @@ new Vue({
         selected_breed: {},
         images: [],
         current_image: {},
-        width: '400',
-        height: '400'
+        width: '',
+        height: ''
     },
     mounted() {
         this.getBreeds();
